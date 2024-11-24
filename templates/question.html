@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ level }} Aptitude Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .question-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .question-item {
+            margin-bottom: 15px;
+        }
+
+        .question-item label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .question-item input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .question-item input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>{{ level }} Aptitude Questions</h1>
+    </header>
+
+    <div class="container">
+        <form action="/submit_answers" method="POST">
+            <!-- Hidden field to send the level -->
+            <input type="hidden" name="level" value="{{ level }}">
+
+            <ul class="question-list">
+                {% for question in questions %}
+                    <li class="question-item">
+                        <label for="answer_{{ loop.index }}">{{ question }}</label>
+                        <input type="text" id="answer_{{ loop.index }}" name="answer_{{ loop.index }}" placeholder="Your answer" required>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <button type="submit" class="submit-btn">Submit Answers</button>
+        </form>
+
+        <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+    </div>
+
+</body>
+</html> 

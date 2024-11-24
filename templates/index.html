@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Aptitude Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;  /* Black background */
+            color: #ffffff;  /* White text for contrast */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;  /* White color for title */
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333333;  /* Dark grey background for the content box */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons-container {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            width: 200px;
+            color: white;  /* White text for buttons */
+        }
+
+        button:hover {
+            background-color: #0056b3;  /* Darker blue for hover effect */
+        }
+
+        .register-btn {
+            background-color: #28a745;  /* Green background for register button */
+        }
+
+        .login-btn {
+            background-color: #007bff;  /* Blue background for login button */
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #888;  /* Lighter grey text for footer */
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;  /* Adjust size of the first image */
+            height: auto;
+        }
+
+        /* Position the second image in the top-right corner */
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 200px;  /* Increased width of the second image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Aptitude Test</h1>
+
+    <!-- Image container -->
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/image.png') }}" alt="Aptitude Test Image">
+    </div>
+
+    <!-- Second Image in Top-Right Corner -->
+    <img class="top-right-image" src="{{ url_for('static', filename='images/image1.png') }}" alt="Top Right Image">
+
+    <div class="container">
+        <div class="buttons-container">
+            <!-- Buttons for Registration and Login -->
+            <button class="register-btn" onclick="window.location.href='/register'">Go to Registration</button><br>
+            <button class="login-btn" onclick="window.location.href='/login'">Go to Login</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Aptitude Test. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - {{ level }} Aptitude Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .score {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .correct-answers {
+            margin-top: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>{{ level }} Aptitude Questions - Results</h1>
+    </header>
+
+    <div class="container">
+        <p class="score">You got <strong>{{ score }}</strong> out of <strong>{{ total }}</strong> correct!</p>
+
+        <div class="correct-answers">
+            <h3>Your Answers:</h3>
+            <ul>
+                {% for answer in answers %}
+                    <li>{{ answer }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Correct Answers:</h3>
+            <ul>
+                {% for correct_answer in correct_answers %}
+                    <li>{{ correct_answer }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>
